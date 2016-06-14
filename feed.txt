@@ -1,0 +1,126 @@
+affiliate :
+
+Publicly Available XML / Jason Feeds
+working Feed: 
+1. http://xml.betdaq.com/
+2. http://pricefeeds.williamhill.com/bet/en-gb?action=GoPriceFeed
+
+
+------------------------------------------------------------------------------------------
+https://www.beaffiliates.com/?/#home
+
+http://affiliates.tipbet.com/
+
+http://www.betfred.com/affiliates/product-tour/live-odds
+http://www.betfred.com/affiliates/betfred-xml-feed
+
+http://pricefeeds.williamhill.com/bet/en-gb?action=GoPriceFeed
+
+
+http://affiliates.sbobet.com/en/#marketing
+
+http://www.pinnaclesports.com/en/api/manual
+
+https://developer.betfair.com/get-started/#exchange-api
+
+https://uk.bet-at-home.com/en/affiliate/home
+
+http://www.pinnaclesports.com/en/api/manual#overview
+
+http://www.unibetaffiliates.com/frequently-asked-questions
+
+https://www.europartners.com/faq/general
+
+http://www.stanjamesaffiliates.com/resources
+
+https://developer.williamhill.com/
+
+http://www.victorsaffiliates.com/en-gb/faqs.htm
+
+https://www.bwinpartypartners.com/help.do
+
+http://www.betssongroupaffiliates.com/
+
+
+
+bwin
+betaway
+william hill
+bet click
+expekt
+interwetten
+noxwin
+bet at home
+bet 24
+intertops
+titanbet
+unibet
+blue square
+nordicbet
+stan james
+betfred
+betdaq
+betcris
+pinnacle
+ladbrokes
+bet 365
+bodog
+partybets
+centrebet
+SPORTSBETTING.COM
+paddypower
+gamebookers
+interwetten
+betfair
+10 bet
+sportingbet
+BetUS
+BetSafe
+188bet
+
+
+    10Bet
+    12Bet
+    138
+    188Bet
+    18Bet
+    5dimes
+    Bet-at-home
+    Bet365
+    BetClic
+    BetOnline
+    BetRedKings
+    BetVictor
+    Betdaq
+    Betfair
+    Betfair Sportsbook
+    Betfred
+    Betsafe
+    Betsson
+    Betway
+    Bodog
+    BookMaker
+    Bwin
+    Cashpoint
+    Coral
+    Intertops
+    Interwetten
+    Ladbrokes
+    Marathon
+    Matchbook
+    MyBet
+    NordicBet
+    Offsidebet
+    Paddy Power
+    Pinnacle
+    Sbobet
+    Smarkets
+    Sportingbet
+    Stanjames
+    The Greek
+    Tipico
+    Triobet
+    Unibet
+    Vbet
+    William Hill
+    Winner
