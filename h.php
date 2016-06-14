@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>Process XML using jQuery</title>
@@ -65,6 +65,7 @@
 
     								////////////////////////////////////////////////////////////
 									var hName,hPrice;
+									var idx = 0;
 									hName = [];
 									hPrice = [];
     								// Horse Name & Price
@@ -81,12 +82,24 @@
 										}		
 										
 										var tempAry = horseName.trim().split(' ');
-										hName[tempAry[0]] = horseName;
-										if(hPrice[tempAry[0]] == null)
-											hPrice[tempAry[0]] = price;
+										// Horse Number is optional
+										// Check is a number or string (acceptable number form(integer/float): 5, 6.7; Not acceptable number form(number and string combined): 5Rockey )
+										// Note: parseInt(tempAry[0], 10) => may consider '5Rockey' is a integer not a string
+										if(Math.floor(tempAry[0]) === Math.floor(tempAry[0]))
+										{
+											idx = tempAry[0];
+										}
+										else
+										{
+											idx += 1;
+										}					
 										
-										else if(parseFloat(price) > 0 && parseFloat(hPrice[tempAry[0]]) > parseFloat(price))
-											hPrice[tempAry[0]] = price;
+										hName[idx] = horseName;
+										if(hPrice[idx] == null)
+											hPrice[idx] = price;
+										
+										else if(parseFloat(price) > 0 && parseFloat(hPrice[idx]) > parseFloat(price))
+											hPrice[idx] = price;
 										
 										// else hPrice[tempAry[0]] = 0.0;
 										
