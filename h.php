@@ -61,8 +61,13 @@
     								var raceCourse = $(this).attr('NAME');
     								var date = $(this).attr('DATE');
     								$("<li></li>").html(raceCourse + ", " + date).appendTo("#dvContent ul");
-    								$("<hr>").html("").appendTo("#dvContent ul");
-
+    								$("<hr>").html("").appendTo("#dvContent ul");									
+									///////////////////////////////////////////////////////////
+									// <MARKET NAME="Win Market" ID="7606449" ODDS_SYSTEM="BL">
+									$(this).find('MARKET').each(function () 
+									{
+                                        if('Win Market' == $(this).attr('NAME'))
+										{
     								////////////////////////////////////////////////////////////
 									var hName,hPrice;
 									var idx = 0;
@@ -107,13 +112,17 @@
     								}); // Horse Name & Price
 									$("<hr>").html("").appendTo("#dvContent ul");
 									
+									// Sort by descending order
+									// hPrice.sort(function(a, b){ return b - a; });
+									
 									for(var i=1;i<hName.length;i++)
 									{
 										if(hName[i] != null)
 										$("<li></li>").html(hName[i] + ", " + hPrice[i]).appendTo("#dvContent ul");
 									}
-									
+								}									
     								////////////////////////////////////////////////////////////
+								  }); // Win Market
     							}); // Race Course Name &p Date
     						} // is Foreign country races ?
     					} // is horse racing ?
