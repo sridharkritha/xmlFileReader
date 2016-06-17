@@ -69,6 +69,8 @@
                                         if('Win Market' == $(this).attr('NAME'))
 										{
     								////////////////////////////////////////////////////////////
+									var horseObjAry;
+									horseObjAry = [];
 									var hName,hPrice;
 									var idx = 0;
 									hName = [];
@@ -77,7 +79,7 @@
     								// (7 Star Trouper & 2.64)
     								$(this).find('SELECTION').each(function () 
 									{
-    									var horseName = $(this).attr('NAME');
+    									var ponyName = $(this).attr('NAME');
 										
 										var price = 0.0;
 										// Price tag is optional so check price tag is exist or not
@@ -86,7 +88,7 @@
 											price = $(this).find('PRICE').attr('VALUE').trim();
 										}		
 										
-										var tempAry = horseName.trim().split(' ');
+										var tempAry = ponyName.trim().split(' ');
 										// Horse Number is optional
 										// Check is a number or string (acceptable number form(integer/float): 5, 6.7; Not acceptable number form(number and string combined): 5Rockey )
 										// Note: parseInt(tempAry[0], 10) => may consider '5Rockey' is a integer not a string
@@ -99,7 +101,7 @@
 											idx += 1;
 										}					
 										
-										hName[idx] = horseName;
+										hName[idx] = ponyName;
 										if(hPrice[idx] == null)
 											hPrice[idx] = price;
 										
@@ -108,18 +110,32 @@
 										
 										// else hPrice[tempAry[0]] = 0.0;
 										
-    									// $("<li></li>").html(horseName + ", " + price).appendTo("#dvContent ul");
+										// Create Array of horse OBJECTS
+										horseObjAry.push({horseNumber: idx, horseName: ponyName, horsePrice: price});
+										
+    									// $("<li></li>").html(ponyName + ", " + price).appendTo("#dvContent ul");
     								}); // Horse Name & Price
 									$("<hr>").html("").appendTo("#dvContent ul");
 									
-									// Sort by descending order
-									// hPrice.sort(function(a, b){ return b - a; });
-									
+									/*
+									// Print the Horses full list ( values in an Array)
 									for(var i=1;i<hName.length;i++)
 									{
 										if(hName[i] != null)
 										$("<li></li>").html(hName[i] + ", " + hPrice[i]).appendTo("#dvContent ul");
 									}
+									*/
+									
+									// Sort by descending order
+									horseObjAry.sort(function(a, b) {
+										return parseFloat(b.horsePrice) - parseFloat(a.horsePrice) ;
+									});
+									
+									// Print the Horses full list ( OBJECTS in an Array )
+									for(var i=0;i<horseObjAry.length;i++)
+									{										
+										$("<li></li>").html(horseObjAry[i].horseName + ", " + horseObjAry[i].horsePrice).appendTo("#dvContent ul");
+									}									
 								}									
     								////////////////////////////////////////////////////////////
 								  }); // Win Market
