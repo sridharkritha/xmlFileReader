@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>Process XML using jQuery</title>
@@ -150,8 +150,12 @@
 										//$("<li></li>").html(horseObjAry[i].horseName + ", " + horseObjAry[i].horsePrice).appendTo("#dvContent ul");								
                                       										
 										 //Add the data rows.
-										 tr = $('<tr/>');
-										 tr.append("<td>" + horseObjAry[i].horseName + "</td>");	
+										 tr = $('<tr/>');		 
+										
+										 
+										 tr.append('<td style="background-color: #ffff42;color:#550000">' + horseObjAry[i].horseName + '</td>');	
+										 
+										 // tr.append("<td>" + horseObjAry[i].horseName + "</td>");	
 										 tr.append("<td>" + horseObjAry[i].horsePrice + "</td>");	
 										 $('.HorseTable').append(tr);					
 									}									
@@ -196,6 +200,21 @@ body
   font-family  : Arial;
   font-size  : 10pt;
 }
+
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+tr:hover{background-color:#f5f5f5}
+
 </style>
 </head>
 <body>
