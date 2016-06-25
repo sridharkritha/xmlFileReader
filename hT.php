@@ -10,14 +10,14 @@
     		type : "GET",
     		url : "hbook.xml",
     		dataType : "xml",
-    		success : function (xml) {
+    		success : function (xml) 
+			{
     			/*
     			<SPORT NAME="Horse Racing" ID="100004">
     			<EVENT NAME="UK Racing" ID="190538">
     			<SUBEVENT NAME="Huntingdon (30th May 2016)" ID="3076648" DATE="2016-05-30 00:01:00">
     			<SUBEVENT1 NAME="14:00 Huntingdon" ID="3076652" DATE="2016-05-30 14:00:00">
     			 */
-
     			/*
     			var horseName = $(xml).find('SELECTION').attr('NAME');
     			alert(horseName);
@@ -32,19 +32,23 @@
     			$("<li></li>").html(horseName + ", " + price).appendTo("#dvContent ul");
     			 */
 
-    			$(xml).find('root').each(function () {
+    			$(xml).find('root').each(function () 
+				{
     				////////////////////////////////////////////////////////////////////////
     				// Sports Name & Sports Region
     				// (Horse Racing & UK Racing)
     				//$(xml).find('SPORT').each(function(){
-    				$(this).find('SPORT').each(function () {
+    				$(this).find('SPORT').each(function ()
+					{
     					var sportsName = $(this).attr('NAME');
     					// Skip sports other than horse race
-    					if ('Horse Racing' == sportsName) {
+    					if ('Horse Racing' == sportsName) 
+						{
     						/////////////////////////////////////////////////////////////////////////////////////
     						var eventName = $(this).find('EVENT').attr('NAME');
     						// Skip other region or country races other than UK and Irish
-    						if ('UK Racing' == eventName || 'Irish Racing' == eventName) {
+    						if ('UK Racing' == eventName || 'Irish Racing' == eventName)
+							{
     							//Add the data rows.
     							tr = $('<tr/>');
     							tr.append("<td>" + sportsName + "</td>");
@@ -57,23 +61,26 @@
     							// Race Course Name & Date
     							// (14:00 Huntingdon & 2016-05-30 14:00:00)
     							// var raceCourse = $(this).find('SUBEVENT1').attr('NAME');
-    							$(this).find('SUBEVENT1').each(function () {
+    							$(this).find('SUBEVENT1').each(function () 
+								{
     								//$("<hr>").html("").appendTo("#dvContent ul");
     								var raceCourse = $(this).attr('NAME');
     								var date = $(this).attr('DATE');
 
     								//Add the data rows.
-    								tr = $('<tr/>');
-    								tr.append("<td>" + raceCourse + "</td>");
-    								tr.append("<td>" + date + "</td>");
-    								$('.HorseTable').append(tr);
+    								tr = $('<tr/>');									
+    								tr.append('<td style="font-weight: bold">' + raceCourse + '</td>');	
+									tr.append('<td style="font-weight: bold">' + date + '</td>');	            								
+									$('.HorseTable').append(tr);
     								//$("<li></li>").html(raceCourse + ", " + date).appendTo("#dvContent ul");
     								//$("<hr>").html("").appendTo("#dvContent ul");
 
     								///////////////////////////////////////////////////////////
     								// <MARKET NAME="Win Market" ID="7606449" ODDS_SYSTEM="BL">
-    								$(this).find('MARKET').each(function () {
-    									if ('Win Market' == $(this).attr('NAME')) {
+    								$(this).find('MARKET').each(function () 
+									{
+    									if ('Win Market' == $(this).attr('NAME')) 
+										{
     										////////////////////////////////////////////////////////////
     										var horseObjAry;
     										horseObjAry = [];
@@ -84,12 +91,14 @@
     										hPrice = [];
     										// Horse Name & Price
     										// (7 Star Trouper & 2.64)
-    										$(this).find('SELECTION').each(function () {
+    										$(this).find('SELECTION').each(function ()
+											{
     											var ponyName = $(this).attr('NAME');
 
     											var price = 0.0;
     											// Price tag is optional so check price tag is exist or not
-    											if ($(this).find('PRICE').length) {
+    											if ($(this).find('PRICE').length) 
+												{
     												price = $(this).find('PRICE').attr('VALUE').trim();
     											}
 
@@ -97,7 +106,8 @@
     											// Horse Number is optional
     											// Check is a number or string (acceptable number form(integer/float): 5, 6.7; Not acceptable number form(number and string combined): 5Rockey )
     											// Note: parseInt(tempAry[0], 10) => may consider '5Rockey' is a integer not a string
-    											if (Math.floor(tempAry[0]) === Math.floor(tempAry[0])) {
+    											if (Math.floor(tempAry[0]) === Math.floor(tempAry[0])) 
+												{
     												idx = tempAry[0];
     											} else {
     												idx += 1;
@@ -125,11 +135,11 @@
     										/*
     										// Print the Horses full list ( values in an Array)
     										for(var i=1;i<hName.length;i++)
-    									{
+    									    {
     										if(hName[i] != null)
     										$("<li></li>").html(hName[i] + ", " + hPrice[i]).appendTo("#dvContent ul");
     										}
-    										 */
+    										*/
 
     										// Sort by descending order
     										horseObjAry.sort(function (a, b) {
@@ -138,14 +148,24 @@
 
 											var idx = 0;
     										// Print the Horses full list ( OBJECTS in an Array )
-    										for (var i = 0; i < horseObjAry.length; i++) {
+    										for (var i = 0; i < horseObjAry.length; i++) 
+											{
     											//$("<li></li>").html(horseObjAry[i].horseName + ", " + horseObjAry[i].horsePrice).appendTo("#dvContent ul");
-
-    											//Add the data rows.
-    											tr = $('<tr/>');
+												
+												// Label : Horse Name & Price 
+												if(i ==0)
+												{
+												    //Add the data rows.
+													tr = $('<tr/>');
+													tr.append("<td>" + "Horse Name" + "</td>");
+													tr.append("<td>" + "Price" + "</td>");
+													$('.HorseTable').append(tr);
+												}			
 												
 												var bgColour = ["#ffc30f","#ff5733","#c70039","#900c3f","#581845",
-												                "#043227","#097168","#ffcc88","#fa482e","#f4a32e" ];
+												                "#043227","#097168","#ffcc88","#fa482e","#f4a32e",
+                                                                "#a1cf48","#e55915","#2283a4","#605f5d","#704241",
+																"#000033","#660000","#333333","#003300","#d3003f"];
 												var fontColour = ["white","#550000"];											
 												
 												var bgColourStr = "background-color:" + bgColour[idx];												
@@ -156,13 +176,12 @@
 												//var bgColourStr = "background-color:" + "#ffff42";												
 												//var fontColourStr = "color:" + "#550000";
 												
-												var styleStr = '<td style="' + bgColourStr +';'+ fontColourStr + '">';
-												
-												// var styleStr = '<td style="background-color: #ffff42;color:#550000">';
-												
+												//Add the data rows.
+    											tr = $('<tr/>');												
+												var styleStr = '<td style="' + bgColourStr +';'+ fontColourStr + '">';												
 												tr.append(styleStr + horseObjAry[i].horseName + '</td>');
 
-
+                                                // var styleStr = '<td style="background-color: #ffff42;color:#550000">';
     											// tr.append('<td style="background-color: #ffff42;color:#550000">' + horseObjAry[i].horseName + '</td>');
     											// tr.append("<td>" + horseObjAry[i].horseName + "</td>");
 												
@@ -207,19 +226,24 @@
 body
 {
   font-family  : Arial;
-  font-size  : 10pt;
+  font-size  : 50pt;
+  <!-- font-size  : 10pt; -->
+  <!-- font-size  : 50pt; -->
 }
 
 
 table {
     border-collapse: collapse;
     width: 100%;
+	
 }
 
 th, td {
     padding: 8px;
     text-align: left;
     border-bottom: 1px solid #ddd;
+	<!-- height:40px; -->
+	
 }
 
 tr:hover{background-color:#f5f5f5}
@@ -233,14 +257,7 @@ tr:hover{background-color:#f5f5f5}
     </div>
 	
 	<table class="HorseTable" >
-    <tr>
-        <th>
-            HorseName                 
-        </th>
-		<th>
-            Price                 
-        </th>
-     </tr>
+    
     </table>
 
     </form>
