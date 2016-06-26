@@ -1,0 +1,51 @@
+<html>
+
+<body>
+<table border="1" width="280"  >
+<tr>
+<td id="rowOne" style="border:5px solid green">row One</td>
+</tr>
+<tr>
+<td id="rowTwo" style="border:5px solid green">row two</td>
+</tr>
+<tr>
+<td id="rowThree" style="border:5px solid green">row three</td>
+</tr>
+
+<tr>
+<td id="rowFour" style="border:5px solid green">row four</td>
+</tr>
+</table>
+<script language="JavaScript1.2">
+<!--
+
+/*
+Flashing Table Border Script- (c) Dynamic Drive (www.dynamicdrive.com)
+Visit http://www.dynamicdrive.com for this script
+Credit must stay intact for use
+*/
+
+//configure interval btw flash (1000=1 second)
+var speed=500
+var rowIds = ["rowOne","rowThree"];
+var idx = 0;
+function flashit(){
+while(idx < rowIds.length + 1)
+{
+var crosstable=document.getElementById? document.getElementById(rowIds[idx]) : document.all? document.all.myexample : ""
+if (crosstable){
+if (crosstable.style.borderColor.indexOf("green")!=-1)
+crosstable.style.borderColor="red"
+else
+crosstable.style.borderColor="green"
+}
+++idx;
+}
+idx  = 0;
+}
+
+setInterval("flashit()", speed)
+//-->
+</script>
+</body>
+</html>
