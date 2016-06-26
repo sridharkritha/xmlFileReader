@@ -4,6 +4,41 @@
 <title>Process XML using jQuery</title>
 <script src="assets/jquery-1.11.3-jquery.min.js" type="text/javascript"></script>
 <script type="text/javascript" language="javascript">
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/*
+Flashing Table Border Script- (c) Dynamic Drive (www.dynamicdrive.com)
+Visit http://www.dynamicdrive.com for this script
+Credit must stay intact for use
+*/
+
+//configure interval btw flash (1000=1 second)
+var speed=500
+var flashRowIds = []; // ["rowOne","rowThree"];
+var flashIndex = 0;
+function flashit()
+{
+while(flashIndex < flashRowIds.length + 1)
+{
+var crosstable=document.getElementById? document.getElementById(flashRowIds[flashIndex]) : document.all? document.all.myexample : ""
+if (crosstable){
+if (crosstable.style.borderColor.indexOf("green")!=-1)
+crosstable.style.borderColor="red"
+else
+crosstable.style.borderColor="green"
+}
+++flashIndex;
+}
+flashIndex  = 0;
+}
+
+setInterval("flashit()", speed)
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     $(document).ready(function () {
     	//$("#dvContent").append("<ul></ul>");
     	$.ajax({
@@ -34,6 +69,7 @@
 
     			$(xml).find('root').each(function () 
 				{
+					flashRowIds = [];
     				////////////////////////////////////////////////////////////////////////
     				// Sports Name & Sports Region
     				// (Horse Racing & UK Racing)
@@ -49,7 +85,7 @@
     						// Skip other region or country races other than UK and Irish
     						if ('UK Racing' == eventName || 'Irish Racing' == eventName)
 							{
-    							//Add the data rows.
+    							//Add the data rows.								
     							tr = $('<tr/>');
     							tr.append("<td>" + sportsName + "</td>");
     							tr.append("<td>" + eventName + "</td>");
@@ -66,6 +102,12 @@
     								//$("<hr>").html("").appendTo("#dvContent ul");
     								var raceCourse = $(this).attr('NAME');
     								var date = $(this).attr('DATE');
+																
+									//Add the data rows ( Space ).								
+									tr = $('<tr/>');
+									tr.append('<td style="height:70px">' + "" + '</td>');	
+									tr.append('<td style="height:70px">' + "" + '</td>');	
+									$('.HorseTable').append(tr);								
 
     								//Add the data rows.
     								tr = $('<tr/>');									
@@ -154,11 +196,12 @@
 												
 												// Label : Horse Name & Price 
 												if(i ==0)
-												{
+												{											
 												    //Add the data rows.
 													tr = $('<tr/>');
 													tr.append("<td>" + "Horse Name" + "</td>");
 													tr.append("<td>" + "Price" + "</td>");
+													//tr.append('<td id="myexample" style="border:5px solid green">' + "Price" + "</td>");
 													$('.HorseTable').append(tr);
 												}			
 												
@@ -174,11 +217,31 @@
 												if(bgColourStr.length - 1 < idx) idx = 0;
 												
 												//var bgColourStr = "background-color:" + "#ffff42";												
-												//var fontColourStr = "color:" + "#550000";
+												//var fontColourStr = "color:" + "#550000";											
 												
 												//Add the data rows.
     											tr = $('<tr/>');												
-												var styleStr = '<td style="' + bgColourStr +';'+ fontColourStr + '">';												
+                                                if(i ==0)
+												{	
+                                                  // Blinking table row border	
+                                                  // <td id="myexample" style="border:5px solid green">row two</td>	
+
+												  var flashId = horseObjAry[i].horseName;
+
+                                                  flashRowIds.push(flashId);
+												  
+												  var flashIdStr = ' id="' + flashId + '" '; // id="myexample"
+												  
+												  var styleStr = '<td' + flashIdStr + 'style="border:10px solid green;' + bgColourStr +';'+ fontColourStr + '">';													
+											
+												  
+                                                 // var styleStr = '<td id="myexample" style="border:10px solid green;' + bgColourStr +';'+ fontColourStr + '">';													
+												}
+												else
+												{
+													var styleStr = '<td style="' + bgColourStr +';'+ fontColourStr + '">';
+												}
+																								
 												tr.append(styleStr + horseObjAry[i].horseName + '</td>');
 
                                                 // var styleStr = '<td style="background-color: #ffff42;color:#550000">';
@@ -233,7 +296,7 @@ body
 
 
 table {
-    border-collapse: collapse;
+   border-collapse: collapse; 
     width: 100%;
 	
 }
