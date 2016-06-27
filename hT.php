@@ -232,7 +232,7 @@ setInterval("flashit()", speed)
 												  
 												  var flashIdStr = ' id="' + flashId + '" '; // id="myexample"
 												  
-												  var styleStr = '<td' + flashIdStr + 'style="border:10px solid green;' + bgColourStr +';'+ fontColourStr + '">';													
+												  var styleStr = '<td' + flashIdStr + 'style="border:10px solid green; cellpadding: 14px; ' + bgColourStr +';'+ fontColourStr + '">';													
 											
 												  
                                                  // var styleStr = '<td id="myexample" style="border:10px solid green;' + bgColourStr +';'+ fontColourStr + '">';													
@@ -296,8 +296,9 @@ body
 
 
 table {
-   border-collapse: collapse; 
-    width: 100%;
+   <!-- border-collapse: collapse;  -->
+   border-collapse: separate;
+   width: 100%;
 	
 }
 
