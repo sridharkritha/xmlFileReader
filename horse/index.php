@@ -11,6 +11,7 @@
 	<script type="text/javascript" src="xmlParser/xmlParser.js"></script>
 	<link rel="stylesheet" type="text/css" href="xmlParser/table.css">
 	<script type="text/javascript" src="xmlParser/table.js"></script>
+	<link rel="stylesheet" type="text/css" href="xmlParser/button.css">
 	
   </head>
   <body>
@@ -39,7 +40,7 @@
 
 <!--         Time  (end) -->
 
-	<button class="editbtn">edit</button>
+	<button class="buttonBaseProp buttonDecorProp showHideBtn">Show Only Favorite</button> 
 	
 	
     <div class="right"></div>

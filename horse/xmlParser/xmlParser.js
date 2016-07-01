@@ -97,7 +97,9 @@ setInterval("flashit()", speed)
 								{
     								//$("<hr>").html("").appendTo("#dvContent ul");
     								var raceCourse = $(this).attr('NAME');
-    								var date = $(this).attr('DATE');
+    								var date = $(this).attr('DATE'); // 2016-05-30 14:00:00
+									var dateTimeAry = date.trim().split(' '); 								
+									date = dateTimeAry[0]; // 2016-05-30	
 																
 									//Add the data rows ( Space ).								
 									tr = $('<tr/>');
@@ -201,9 +203,9 @@ setInterval("flashit()", speed)
 													$('.HorseTable').append(tr);
 												}			
 												
-												var bgColour = ["#ffc30f","#ff5733","#c70039","#900c3f","#581845",
-												                "#043227","#097168","#ffcc88","#fa482e","#f4a32e",
-                                                                "#a1cf48","#e55915","#2283a4","#605f5d","#704241",
+												var bgColour = ["#cc9900","#ff5733","#c70039","#900c3f","#581845",
+												                "#043227","#097168","#cc7400","#fa482e","#009973",
+                                                                "#7aa12b","#e55915","#2283a4","#605f5d","#704241",
 																"#000033","#660000","#333333","#003300","#d3003f"];
 												var fontColour = ["white","#550000"];											
 												

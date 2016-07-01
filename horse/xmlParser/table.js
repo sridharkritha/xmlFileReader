@@ -1,7 +1,7 @@
 $(document).ready(function(){
-    $('.editbtn').click(function(e){
+    $('.showHideBtn').click(function(e){
 		// Show / Hide name change
-        $(this).html($(this).html() == 'edit' ? 'modify' : 'edit');
+        $(this).html($(this).html() == 'Show Only Favorite' ? 'Show All' : 'Show Only Favorite');
         
         e.preventDefault();
       
@@ -9,3 +9,4 @@ $(document).ready(function(){
 		$('.optionalRow').toggleClass('hideRow favRow');			
     });
 });
+
