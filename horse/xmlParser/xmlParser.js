@@ -34,7 +34,8 @@ setInterval("flashit()", speed)
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    $(document).ready(function () {
+    $(document).ready(function () {	
+	
     	//$("#dvContent").append("<ul></ul>");
     	$.ajax({
     		type : "GET",
@@ -215,8 +216,13 @@ setInterval("flashit()", speed)
 												//var fontColourStr = "color:" + "#550000";											
 												
 												//Add the data rows.
-    											tr = $('<tr/>');												
-                                                if(i ==0)
+												if(i < 3)
+												{
+													tr = $('<tr/ class="favRow">');	  // Rows always visible													
+												}	
+                                                else  tr = $('<tr/ class="optionalRow">');	  // Rows visibility is optional and controlled by a button (show / hide)
+												
+                                                if(i == 0)
 												{	
                                                   // Blinking table row border	
                                                   // <td id="myexample" style="border:5px solid green">row two</td>	
@@ -236,14 +242,33 @@ setInterval("flashit()", speed)
 												{
 													var styleStr = '<td style="' + bgColourStr +';'+ fontColourStr + '">';
 												}
-																								
+													
+												/*	
+												if(i == 3)
+												{
+													
+													// Add a (Show/Hide)Button 
+													tr.append(styleStr + " " + '</td>');
+													// tr.append(styleStr + " " + '</td>');
+													
+													//tr.append('<td><button class="editbtn"> edit</button></td>');
+													tr.append('<td><button class="editbtn">edit</button></td>');
+													
+													// <tr><td><button class="editbtn">edit</button></td></tr>
+													
+													 
+													// tr.append('<td> <button class="editbtn">' + edit + '</button> </td>');
+												    
+												}
+												*/
+                                               													
 												tr.append(styleStr + horseObjAry[i].horseName + '</td>');
 
                                                 // var styleStr = '<td style="background-color: #ffff42;color:#550000">';
     											// tr.append('<td style="background-color: #ffff42;color:#550000">' + horseObjAry[i].horseName + '</td>');
     											// tr.append("<td>" + horseObjAry[i].horseName + "</td>");
 												
-    											tr.append("<td>" + horseObjAry[i].horsePrice + "</td>");
+    											tr.append("<td>" + horseObjAry[i].horsePrice + "</td>");												
     											$('.HorseTable').append(tr);
     										}
     									}

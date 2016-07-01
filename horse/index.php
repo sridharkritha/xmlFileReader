@@ -9,35 +9,8 @@
     <link rel="stylesheet" type="text/css" href="time/time.css">
     <script type="text/javascript" src="time/time.js"></script>
 	<script type="text/javascript" src="xmlParser/xmlParser.js"></script>
-	
-	<!--                   -->
-	<style type="text/css">
-
-table {
-   <!-- border-collapse: collapse;  -->
-   border-collapse: separate;
-   width: 100%;
-	
-}
-
-th, td {
-    padding: 8px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-	<!-- height:40px; -->
-	font-family  : Arial;
-  font-size  : 50pt;
-	
-}
-
-tr:hover{background-color:#f5f5f5}
-
-</style>
-	
-	
-	
-	
-	
+	<link rel="stylesheet" type="text/css" href="xmlParser/table.css">
+	<script type="text/javascript" src="xmlParser/table.js"></script>
 	
   </head>
   <body>
@@ -66,7 +39,7 @@ tr:hover{background-color:#f5f5f5}
 
 <!--         Time  (end) -->
 
-	
+	<button class="editbtn">edit</button>
 	
 	
     <div class="right"></div>
