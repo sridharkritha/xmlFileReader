@@ -13,8 +13,13 @@ th, td {
     border-bottom: 1px solid #ddd;
 	/* height:40px; */
 	font-family  : Arial;
-    font-size  : 50pt;
-	
+    font-size  : 50pt;	
+}
+
+/* set first table column minimum width */
+td:first-child {
+    width: 55%;
+    white-space: nowrap;
 }
 
 tr.favRow {

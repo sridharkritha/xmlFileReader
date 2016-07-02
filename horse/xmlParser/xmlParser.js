@@ -181,10 +181,25 @@ setInterval("flashit()", speed)
     										}
     										*/
 
-    										// Sort by descending order
+    										// Sort 
     										horseObjAry.sort(function (a, b) {
-    											return parseFloat(b.horsePrice) - parseFloat(a.horsePrice);
+    											// return parseFloat(b.horsePrice) - parseFloat(a.horsePrice); // by descending order
+												return parseFloat(a.horsePrice) - parseFloat(b.horsePrice); // by ascending order
     										});
+											
+											// Move 0 price horses to end of the list
+											for (var i = 0; i < horseObjAry.length; i++) 
+											{
+												if(!horseObjAry[i].horsePrice)
+												{
+													var temp = horseObjAry.shift(); // shift - pop the front element 
+													horseObjAry.push(temp);
+													--i;
+												}
+												else break;
+											}
+											
+											
 
 											var idx = 0;
     										// Print the Horses full list ( OBJECTS in an Array )
@@ -224,7 +239,7 @@ setInterval("flashit()", speed)
 												}	
                                                 else  tr = $('<tr/ class="optionalRow">');	  // Rows visibility is optional and controlled by a button (show / hide)
 												
-                                                if(i == 0)
+                                                if(i == 0 && (horseObjAry[1].horsePrice - horseObjAry[0].horsePrice > 2.0))
 												{	
                                                   // Blinking table row border	
                                                   // <td id="myexample" style="border:5px solid green">row two</td>	
@@ -243,26 +258,7 @@ setInterval("flashit()", speed)
 												else
 												{
 													var styleStr = '<td style="' + bgColourStr +';'+ fontColourStr + '">';
-												}
-													
-												/*	
-												if(i == 3)
-												{
-													
-													// Add a (Show/Hide)Button 
-													tr.append(styleStr + " " + '</td>');
-													// tr.append(styleStr + " " + '</td>');
-													
-													//tr.append('<td><button class="editbtn"> edit</button></td>');
-													tr.append('<td><button class="editbtn">edit</button></td>');
-													
-													// <tr><td><button class="editbtn">edit</button></td></tr>
-													
-													 
-													// tr.append('<td> <button class="editbtn">' + edit + '</button> </td>');
-												    
-												}
-												*/
+												}											
                                                													
 												tr.append(styleStr + horseObjAry[i].horseName + '</td>');
 
